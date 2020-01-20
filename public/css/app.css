@@ -10,25 +10,12 @@ i.icon {
 #delete {
 	display: inline;
 }
-/* #formdiv {
-	width: 30%;
-	margin: 25px auto;
+
+#codedby {
+	position: fixed;
+	left: 0;
+	bottom: 10px;
+	margin: 0;
 }
 
-i.icon {
-font-size: 2em;
-}
-
-.gridfix {
-	display: flex;
-	flex-wrap: wrap;
-} */
-/* div {
-	margin: 20px 0;
-} */
-
-/* img {
-	width: 500px;
-	height: auto;
-} */
 
