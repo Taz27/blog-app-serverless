@@ -1,6 +1,7 @@
 const express = require("express"),
 	  app = express(),
 	  bodyParser = require("body-parser"),
+	  serverless = require('serverless-http'),
 	  methodOverride = require("method-override"),
 	  expressSanitizer = require("express-sanitizer"),
 	  mongoose = require("mongoose");
@@ -26,6 +27,7 @@ mongoose.connect(DB_URL, {
 //APP CONFIG
 app.set("view engine", "ejs");
 app.use(express.static("public"));
+// express.static(path.join(__dirname, 'public'))
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 app.use(expressSanitizer());
@@ -137,4 +139,7 @@ app.get("*", (req, res) => {
 	res.status(404).send("Sorry, page not found! Error Code: 404");
 });
 
-app.listen(PORT, process.env.IP, () => console.log("Blog App Server is Listening!"));
+// app.listen(PORT, process.env.IP, () => console.log("Blog App Server is Listening!"));
+
+// Wrap the express app in serverless for AWS Lambda deployment
+module.exports.handler = serverless(app);
