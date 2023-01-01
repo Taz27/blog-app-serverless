@@ -11,8 +11,8 @@
 			<div class="description" style="overflow-wrap: break-word;">
 				<p><%- blog.body %></p>
 			</div>
-			<a class="ui orange basic button" href="/blogs/<%= blog._id %>/edit">Edit</a>
-			<form id="delete" action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+			<a class="ui orange basic button" href="/dev/blogs/<%= blog._id %>/edit">Edit</a>
+			<form id="delete" action="/dev/blogs/<%= blog._id %>?_method=DELETE" method="POST">
 				<button class="ui red basic button">Delete</button>
 			</form>	
 		</div>

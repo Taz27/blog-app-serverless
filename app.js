@@ -27,7 +27,7 @@ mongoose.connect(DB_URL, {
 //APP CONFIG
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-// express.static(path.join(__dirname, 'public'))
+// app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 app.use(expressSanitizer());
@@ -45,7 +45,7 @@ const Blog = mongoose.model("blog", blogSchema);
 //RESTful ROUTES
 app.get("/", (req, res) => {
 	//ROOT ROUTE redirected to INDEX Route
-	res.redirect("/blogs");
+	res.redirect("/dev/blogs");
 });
 
 app.get("/blogs", (req, res) => {
@@ -68,7 +68,7 @@ app.post("/blogs", (req, res) => {
 		req.body.blog.body = req.sanitize(req.body.blog.body);
 		//console.log(">>>>>" + req.body.blog.body);
 		var newBlog = await Blog.create(req.body.blog);
-		res.redirect("/blogs");
+		res.redirect("/dev/blogs");
 	})().then(() => {
 			console.log("SUCCESS: New Blog Created !!!");
 		}).catch(err => {
@@ -89,7 +89,7 @@ app.get("/blogs/:id", (req, res) => {
 	//Show route. find blog by id the show it.
 	Blog.findById(req.params.id, (err, foundBlog) => {
 		if (err) {
-			res.redirect("/blogs");
+			res.redirect("/dev/blogs");
 		} else {
 			res.render("show", {blog: foundBlog});	
 		}
@@ -102,10 +102,10 @@ app.put("/blogs/:id", (req, res) => {
 	req.body.blog.body = req.sanitize(req.body.blog.body);
 	Blog.findByIdAndUpdate(req.params.id, req.body.blog, (err, updatedBlog) => {
 		if (err) {
-			res.redirect("/blogs");
+			res.redirect("/dev/blogs");
 		} else {
 			console.log("SUCCESS: Blog Updated!");
-			res.redirect("/blogs/" + req.params.id);	
+			res.redirect("/dev/blogs/" + req.params.id);	
 		}
 	});
 });
@@ -115,10 +115,10 @@ app.delete("/blogs/:id", (req, res) => {
 	//update blog by id.
 	Blog.findByIdAndDelete(req.params.id, (err, deletedBlog) => {
 		if (err) {
-			res.redirect("/blogs");
+			res.redirect("/dev/blogs");
 		} else {
 			console.log("SUCCESS: Blog Deleted!");
-			res.redirect("/blogs");	
+			res.redirect("/dev/blogs");	
 		}
 	});
 });
@@ -128,7 +128,7 @@ app.get("/blogs/:id/edit", (req, res) => {
 	//find blog by id the show it with data loaded.
 	Blog.findById(req.params.id, (err, foundBlog) => {
 		if (err) {
-			res.redirect("/blogs");
+			res.redirect("/dev/blogs");
 		} else {
 			res.render("edit", {blog: foundBlog});	
 		}
