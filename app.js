@@ -8,9 +8,7 @@ const express = require('express'),
 
 const PORT = process.env.PORT || 3000,
   //DB_URL = process.env.DB_URL_BLOG_APP || "mongodb://localhost/restful_blog_app";
-  DB_URL =
-    process.env.DB_URL_BLOG_APP ||
-    'mongodb+srv://taran:Coco1981@cluster-taz-8vczy.mongodb.net/blog_app?retryWrites=true&w=majority';
+  DB_URL = process.env.DB_URL_BLOG_APP;
 
 //MongoDB ATLAS url (to use at Heroku)
 //const DB_URL_ATLAS = "mongodb+srv://taran:Coco1981@cluster-taz-8vczy.mongodb.net/blog_app?retryWrites=true&w=majority";
