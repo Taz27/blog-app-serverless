@@ -183,7 +183,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-blog-nodejs-app/dev/1672718123188-2023-01-03T03:55:23.188Z/serverless-blog-nodejs-app.zip"
+                "S3Key": "serverless/serverless-blog-nodejs-app/dev/1672718355343-2023-01-03T03:59:15.343Z/serverless-blog-nodejs-app.zip"
               },
               "Handler": "app.handler",
               "Runtime": "nodejs16.x",
@@ -431,7 +431,7 @@
               "AppLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1672718119793": {
+          "ApiGatewayDeployment1672718352232": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -693,7 +693,7 @@
     "artifact": "/Users/taranmand/personal-git-repos/blog-app-serverless/.serverless/serverless-blog-nodejs-app.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/serverless-blog-nodejs-app/dev/1672718123188-2023-01-03T03:55:23.188Z",
+    "artifactDirectoryName": "serverless/serverless-blog-nodejs-app/dev/1672718355343-2023-01-03T03:59:15.343Z",
     "artifact": "serverless-blog-nodejs-app.zip"
   }
 }
