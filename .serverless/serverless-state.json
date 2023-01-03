@@ -13,6 +13,9 @@
       "iamManagedPolicies": [
         "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
       ],
+      "environment": {
+        "DB_URL_BLOG_APP": "mongodb+srv://taran:Coco1981@cluster-taz-8vczy.mongodb.net/blog_app?retryWrites=true&w=majority"
+      },
       "versionFunctions": true,
       "compiledCloudFormationTemplate": {
         "AWSTemplateFormatVersion": "2010-09-09",
@@ -180,13 +183,18 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-blog-nodejs-app/dev/1672561036034-2023-01-01T08:17:16.034Z/serverless-blog-nodejs-app.zip"
+                "S3Key": "serverless/serverless-blog-nodejs-app/dev/1672718123188-2023-01-03T03:55:23.188Z/serverless-blog-nodejs-app.zip"
               },
               "Handler": "app.handler",
               "Runtime": "nodejs16.x",
               "FunctionName": "serverless-blog-nodejs-app-dev-app",
               "MemorySize": 128,
               "Timeout": 6,
+              "Environment": {
+                "Variables": {
+                  "DB_URL_BLOG_APP": "mongodb+srv://taran:Coco1981@cluster-taz-8vczy.mongodb.net/blog_app?retryWrites=true&w=majority"
+                }
+              },
               "Role": {
                 "Fn::GetAtt": [
                   "IamRoleLambdaExecution",
@@ -198,14 +206,14 @@
               "AppLogGroup"
             ]
           },
-          "AppLambdaVersionPp9SvW2oZesbMmhewWULrJtZzIyxvLtNk5cJZsUvPFc": {
+          "AppLambdaVersionvW846dqwJetOCHgX8B8nXNTKQPZ8qdi3q6urX0": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AppLambdaFunction"
               },
-              "CodeSha256": "WTl4+9ZDp7M54MqFOHPyI+XrYak7kL8pLJW2ZwtJ39M="
+              "CodeSha256": "Gg8KQGLHIuHVULG/YQoEa6eC6mJrK877ks1xzttkgGU="
             }
           },
           "ApiGatewayRestApi": {
@@ -423,7 +431,7 @@
               "AppLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1672561032805": {
+          "ApiGatewayDeployment1672718119793": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -488,7 +496,7 @@
           "AppLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AppLambdaVersionPp9SvW2oZesbMmhewWULrJtZzIyxvLtNk5cJZsUvPFc"
+              "Ref": "AppLambdaVersionvW846dqwJetOCHgX8B8nXNTKQPZ8qdi3q6urX0"
             },
             "Export": {
               "Name": "sls-serverless-blog-nodejs-app-dev-AppLambdaFunctionQualifiedArn"
@@ -666,7 +674,7 @@
         "timeout": 6,
         "runtime": "nodejs16.x",
         "vpc": {},
-        "versionLogicalId": "AppLambdaVersionPp9SvW2oZesbMmhewWULrJtZzIyxvLtNk5cJZsUvPFc"
+        "versionLogicalId": "AppLambdaVersionvW846dqwJetOCHgX8B8nXNTKQPZ8qdi3q6urX0"
       }
     },
     "configValidationMode": "warn",
@@ -682,10 +690,10 @@
     },
     "layers": {},
     "isDashboardMonitoringPreconfigured": false,
-    "artifact": "/Users/taranmand/personal-git-repos/blog-app/.serverless/serverless-blog-nodejs-app.zip"
+    "artifact": "/Users/taranmand/personal-git-repos/blog-app-serverless/.serverless/serverless-blog-nodejs-app.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/serverless-blog-nodejs-app/dev/1672561036034-2023-01-01T08:17:16.034Z",
+    "artifactDirectoryName": "serverless/serverless-blog-nodejs-app/dev/1672718123188-2023-01-03T03:55:23.188Z",
     "artifact": "serverless-blog-nodejs-app.zip"
   }
 }
