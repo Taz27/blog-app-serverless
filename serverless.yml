@@ -11,6 +11,8 @@ provider:
   # endpointType: REGIONAL
   iamManagedPolicies:
     - 'arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole'
+  environment:
+    DB_URL_BLOG_APP: 'mongodb+srv://taran:Coco1981@cluster-taz-8vczy.mongodb.net/blog_app?retryWrites=true&w=majority'
 
 functions:
   app:
